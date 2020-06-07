@@ -6,7 +6,7 @@ let formData = {
     email: userEmail
 };
 let postObj = {
-    method: "POST",
+    // method: "POST",
     headers: {
         "Content-Type":"application/json", 
         "Accept": "application/json"
@@ -26,7 +26,10 @@ let postObj = {
     })
     .catch(function(error){
         alert("Error!");
-        console.log(error.message);
+        let body = document.getElementsByTagName('body')[0];
+        let element = document.createElement('h1')
+        element.textContent = "error: " + error.message;
+       body.append(element);
     });
-    return postObj
+    return postObj;
 }
